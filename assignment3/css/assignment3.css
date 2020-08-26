@@ -1,0 +1,90 @@
+
+option
+{
+    color:darkkhaki;
+    width: 100%;
+    
+}
+body
+{
+    background: url("images/Frost.jpg") no-repeat fixed;    
+    color: white;
+    background-size: cover;
+}
+.jumbotron
+{
+    margin-top: 20px;
+    text-align: center;
+}
+.gameLevelDiv
+{
+    text-align: center;
+    font-size: large;
+    font-weight: 500;
+    background-color: white;
+}
+
+button
+{
+    color: rgb(14, 100, 96);    
+}
+.imagesDiv
+{
+    justify-content: center;
+    padding-right: 6px;
+}
+.button
+{
+    margin-top: 10px;
+    justify-content: center;
+    text-align: center;
+}
+.restart
+{
+    margin-top: 2%;
+    justify-content: center;
+    
+    text-align: center;
+}
+.winningMsg
+{
+    text-align: center;
+    font-size: large;
+    font-weight: 500;
+    background-color: white;
+    margin-bottom: 10px;
+}
+#score
+{
+    margin-top: 20px;
+    text-align: center;
+    font-size: large;
+    font-weight: 500;
+    background-color: white;
+}
+.sourceImages div img,.targetImages div img
+{ 
+   border: 2px solid white;
+   
+   margin-left: 10px;
+}
+.sourceImages div,.targetImages div 
+{
+   justify-content: center;
+   float:left;
+   width:70%;
+   height: 40%;
+   width: 150px;
+   height: 150px;
+   margin-top: 20px;
+   margin-left: 20px;
+   cursor: pointer;
+   text-align: center;
+}
+.sourceImages ,.targetImages  
+{
+   width:70%;
+   height: 40%;
+   width: 90%;
+   height: 40%;
+}

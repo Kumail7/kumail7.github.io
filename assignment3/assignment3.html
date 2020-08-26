@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Belleza&display=swap"rel="stylesheet"/>
+    <link rel="stylesheet" href="css/assignment3.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script >
+    
+        var score = 0;
+        var timer=60;
+        var flag = 0;
+        var btnClickedFlag=0;
+        var playingFlag=0;
+        var correctFlag=0;
+        var source =["css/images/tiger2.jpg","css/images/panda2.jpg","css/images/lion2.jpg","css/images/cat2.jpg","css/images/dog2.jpg","css/images/hen2.jpg"];
+    
+        var target = ["css/images/tiger.jpg","css/images/panda.jpg","css/images/lion.jpg","css/images/cat.jpg","css/images/dog.jpg","css/images/hen.jpg"];
+        var counter=0;
+
+    $(document).ready(function () 
+    {
+        $(".restart").hide();
+        $(".sourceImages").hide();
+        $(".targetImages").hide();
+        var selectedLevel=1;
+        btnClickedFlag=0;
+
+        $("select.gameLevels").change(function()
+          {
+             selectedLevel = $(this).children("option:selected").val();
+           
+            if(selectedLevel==1)
+            {
+              timer=60;
+              if(playingFlag==0)
+              {
+                $("#timer").text("00:"+timer);
+              }
+            }
+            else if(selectedLevel==2)
+            {
+              timer=50;
+              if(playingFlag==0)
+              {
+                $("#timer").text("00:"+timer);
+              }
+            }
+            else if(selectedLevel==3)
+            {
+              timer=35;
+              if(playingFlag==0)
+              {
+                $("#timer").text("00:"+timer);
+              }
+            }
+            else if(selectedLevel==4)
+            {
+              timer=20;
+              if(playingFlag==0)
+              {
+                $("#timer").text("00:"+timer);  
+              }
+            }
+            else if(selectedLevel==5)
+            {
+              timer=10;
+              if(playingFlag==0)
+              {
+                $("#timer").text("00:"+timer);  
+              }
+            }
+          });
+          
+        $("#timer").text("00:"+timer);
+
+          $("#playButton").click(function () 
+          {  
+              $("#score").text("Score = 0");
+              $(".sourceImages").show();
+              $(".targetImages").show();
+              $(".scorecount").show();
+              $(".imagesDiv").show();
+              $(".restart").show();
+
+              $("#playButton").hide();
+              $(".gameLevelDiv").hide();
+              
+              clearInterval();
+              if(btnClickedFlag==0)
+              {
+                playingFlag=1;
+                btnClickedFlag=1;
+                  if(selectedLevel==1)
+                  {
+                    timer=60;
+                    $("#timer").text("00:"+timer);
+                  }
+                  else if(selectedLevel==2)
+                  {
+                    timer=50;
+                    $("#timer").text("00:"+timer);
+                  }
+                  else if(selectedLevel==3)
+                  {
+                    timer=35;
+                    $("#timer").text("00:"+timer);
+                  }
+                  else if(selectedLevel==4)
+                  {
+                    timer=20;
+                    $("#timer").text("00:"+timer);
+                  }
+                  else if(selectedLevel==5)
+                  {
+                    timer=10;
+                    $("#timer").text("00:"+timer);
+                  }
+
+                  setInterval(function() 
+                  {
+                    if(playingFlag==1)
+                    {
+                      timer--;
+                      if(timer==0)
+                      {
+                        score_save(score);
+                        counter++;
+                        alert("Game Over!");
+                        clearInterval();
+                        $(".restart").show();
+                        btnClickedFlag=0;
+                        playingFlag=0;
+                        $(".imagesDiv").hide();
+                      }
+                      if(timer<0)
+                      {
+                        clearInterval();
+                        $(".restart").show();
+                        $(".gameLevelDiv").show();
+                        btnClickedFlag=0;
+                        playingFlag=0;
+                        
+                        $(".imagesDiv").hide();
+                      }
+                      else if(timer<10)
+                      {
+                        $("#timer").text("00:0"+timer);
+                      }
+                      else
+                      {
+                        $("#timer").text("00:"+timer);
+                      }
+                    }
+                      
+                  }, 1000);
+                btnClickedFlag=0;
+              }
+          });
+       
+          var loss = new Audio("audio/wrong2.mp3");
+          var win = new Audio("audio/correct2.mp3");
+
+          var shuffleSourceArray = arrayShuffle(source);
+          $.each(shuffleSourceArray, function (index, value) 
+          {
+            var sourceval = value.slice(6, -5);
+
+            $("<div ><img style='width:100%;height:100%;' src='" + value + "' /></div>")
+              .appendTo(".sourceImages")
+              .draggable({
+                          // revert:true,
+                          revert:function (socketObj)
+                          {
+                            if(socketObj===false)
+                            {
+                              if(correctFlag==1)
+                              {
+                                correctFlag=0;
+                              }
+                              else
+                              {
+                                loss.play();
+                              }
+		                        }
+                            return true;
+                          },
+                          scope: sourceval.toLocaleLowerCase(),
+                        });
+          });
+
+        var shuffleTargetArray = arrayShuffle(target);
+        $.each(shuffleTargetArray, function (index, value) 
+        {
+          var targetval = value.slice(6, -4);
+
+          $("<div ><img style='width:100%;height:100%;' src='" + value + "' /></div>")
+            .appendTo(".targetImages")
+            .droppable({
+                        scope: targetval.toLocaleLowerCase(),
+                        drop: function (event, ui) 
+                        {
+                              win.play();
+                              $(ui.draggable).append($(this).text());
+                              correctFlag=1;
+                              check = 0;
+                              $(this).toggle("bounce", { times: 2 }, "fast");
+                              score+=5;
+                              $(this).hide("puff", "1000");
+                              $("#score").text("Score = " +score);
+                            if (score  == 30) 
+                            {
+                                console.log("Score = "+score);
+                                score_save(score);
+                                $(".targetImages").hide();
+                                $(".restartBtn").show();
+                                $(".imagesDiv").hide();
+                                $("#winningMsg").text("Congratulations You Won!");
+                                $("#winningMsg").addClass("winningMsg");
+                                flag = 1;
+                                btnClicked=false;
+                                playingFlag=0;
+                            }
+                             $(".restart").show();
+                        },
+                        
+                      });
+          });
+    });
+
+function arrayShuffle(array) 
+{
+  return array.sort(function () 
+  {
+    return 0.5 - Math.random();
+  });
+}
+
+    function score_save(score) 
+    { 
+      var db = openDatabase(''+score+'', '1.0', 'Assignment3', 2 * 1024 * 1024); 
+            var msg; 
+            
+            db.transaction(function (tx) 
+            { 
+                tx.executeSql('CREATE TABLE IF NOT EXISTS SCORES (id unique, score)'); 
+                tx.executeSql('INSERT INTO SCORES (id, score) VALUES (1, '+score+')'); 
+            })
+    
+            db.transaction(function (tx) 
+            { 
+                tx.executeSql('SELECT * FROM SCORES', [], function (tx, results) 
+                { 
+                    var len = results.rows.length, i; 
+                    msg = "<p>Scores: " + len + "</p>";
+                    for (i = 0; i < len; i++) 
+                    { 
+                      console.log(results.rows.item(i).score);
+                        msg = "<p><b>" +"Score = "+ results.rows.item(i).score + "</b></p>"; 
+                        document.querySelector('#score').innerHTML =  msg; 
+                    } 
+                }, null); 
+            }); 
+
+    }
+
+    </script>
+  </head>
+  <body>  
+      <div class="container">
+
+        <div class=" container jumbotron justify-content-center" id="jumbotron">
+          <h1>Animal Matching Game</h1>
+          <h3 id="timer"></h3>
+        </div>
+
+            <div class="gameLevelDiv">
+              <div class="option">
+                <label>Select level</label>
+                <select class="gameLevels" name="gameLevels">
+                  <option value="1" selected="selected">Level 1 - 60s</option>
+                  <option value="2">Level 2 - 50s</option>
+                  <option value="3">Level 3 - 35s</option>
+                  <option value="4">Level 4 - 20s</option>
+                  <option value="5">Level 5 - 10s</option>
+                </select>
+              </div>
+
+            </div>
+
+          <div class="button">
+            <button class="btn-lg btn-block btn-primary"id="playButton">Play Game</button>
+          </div>
+
+        <div class="imagesDiv row">
+              <div class="sourceImages">
+              
+              </div>
+
+              <div class="targetImages">
+              
+              </div>
+        </div>
+        <div class="restart">
+          <div id="winningMsg"></div>
+          <a href="Assignment3.html" class="restartBtn btn btn-primary btn-lg btn-block" role="button" aria-disabled="true">Restart Game</a>
+        </div>
+
+        <div classs="jumbotron"id="score"></div>
+
+      </div>  
+  </body>
+</html>
