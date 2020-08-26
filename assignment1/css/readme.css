@@ -1,0 +1,33 @@
+body
+{
+    background: url("images/Frost.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+}
+.container
+{
+    margin:5%;
+    height: 100%;
+    color: white;
+    text-align:center;
+}
+.main
+{
+    margin-left:20%;
+    margin-right: 20%;
+    background-color: white;
+    color: black;
+    text-align:left;
+    font-size:20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
+.code
+{
+    width:80%;
+    font-family: monospace;
+    font-weight: bold;
+    background:#2a1b42;
+    color: white;
+}

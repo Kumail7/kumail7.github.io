@@ -1,0 +1,50 @@
+body
+{
+    background: url("images/Frost.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+}
+.container
+{
+    margin:5%;
+    height: 100%;
+}
+.main
+{
+    margin-left: 30%;
+    margin-right: 35%;
+    background-color: white;
+}
+.row
+{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+.section
+{   
+    font-family: monospace;
+    border-bottom: 1px solid black;    
+    margin-bottom: 10px;
+}
+.section h3
+{
+    padding-left: 0.5%;
+}
+.section p,.section span
+{
+    padding-left:2%;  
+}
+.section span,section li
+{
+    font-family: monospace;
+    
+}
+#heading
+{
+    padding-top:2%;
+    text-align: center;
+}
+#last
+{
+    margin:none;
+}

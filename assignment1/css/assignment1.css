@@ -1,0 +1,70 @@
+body
+{
+    background: url("images/Frost.jpg") no-repeat fixed;    
+    color: white;
+    background-size: cover;
+}
+span a
+{
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size:medium;
+}
+.navbar-brand
+{
+    color: white;
+    text-decoration: none;
+}
+#header
+{
+    color: white;
+    text-align: center;
+    font-size:30px;
+    font-weight:600;
+}
+#collapsibleNavbar
+{
+    width:100%;
+    margin-top: 20px;
+    text-align: center;
+    word-spacing: 40px;
+    font-size: 30px;
+    color: white;
+    text-decoration: none;
+}
+#collapsibleNavbar a
+{
+    color: white;
+    text-decoration: none;
+    background-color: #17003b;
+    padding:0.25%;
+    
+}
+#collapsibleNavbar a:hover
+{
+   opacity: 0.75;
+}
+.name
+{
+    color: white;
+    font-size: 30px;
+    text-align: center;
+}
+#image
+{
+    height: 20%;
+    width: 20%;
+    margin-left: 40%;
+    margin-right: 40%;
+    text-align: center;
+}
+.a
+{
+    display: inline-block;
+    width:200px;
+    color: white;
+    text-decoration: none;
+    background-color: #17003b;
+    padding:0.25%;
+}

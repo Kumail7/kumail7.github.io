@@ -1,0 +1,47 @@
+body
+{
+    background: url("images/Frost.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+}
+.main
+{
+    background-color:#19143d;
+    height: 20vh;
+    width: 50%;
+    margin-left: 25%;
+}
+.header
+{
+    text-align: center;
+    color: white;
+}
+#intro
+{
+    margin-top: 5%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    text-align: center;
+    color: white;
+}
+#different
+{
+    padding-top: 1%;
+    padding-bottom: 1%;
+    text-align: center;
+    color: white;
+    background-color: rgb(31, 0, 31);
+}
+#contribution
+{
+    padding-top: 1%;
+    padding-bottom: 1%;
+    text-align: center;
+    color: white;
+    background-color: #19143d;
+}
+.h2
+{
+    font-size: x-large;
+    font-weight: bold;
+}
