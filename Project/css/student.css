@@ -1,0 +1,27 @@
+#loginBtn
+{
+    margin-left: 5%;
+}
+body
+{
+    text-align: center;
+}
+i
+{
+   margin-left: 1%; 
+}
+.jumbotron
+{
+   
+    font-weight: 800;
+    background-color: rgb(0, 127, 136);
+}
+.container
+{
+    margin-top: 5%;
+    text-align: center;
+}
+#marksTable
+{
+    margin-top:2%;
+}

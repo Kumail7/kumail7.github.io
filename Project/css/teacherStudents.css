@@ -1,0 +1,22 @@
+.container
+{
+    margin-top: 5%;
+    text-align: center;
+}
+h1
+{
+    color: white;
+}
+button
+{
+    margin-bottom: 2%;
+}
+i
+{
+    margin-left: 1%;
+}
+.marks
+{
+    border: none;
+    border-color: transparent;
+}

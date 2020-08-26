@@ -1,0 +1,38 @@
+body
+{
+    font-size: medium;
+}
+i
+{
+    margin-left: 1%;
+}
+h1
+{
+    text-align: center;
+}
+.jumbotron
+{
+    text-align: center;
+    font-weight: 600;
+}
+table,#t1
+{
+    text-align: center;
+}
+.container
+{
+    margin-top: 5%;
+}
+.row
+{
+    margin-left: 20%;
+}
+textarea
+{
+    height: 100px;
+    width: 100%;
+}
+#cardtitle
+{
+    text-align: center;
+}

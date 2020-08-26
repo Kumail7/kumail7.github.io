@@ -1,0 +1,66 @@
+body
+{
+    background: url("images/Frost.jpg") no-repeat fixed;    
+    color: white;
+    background-size: cover;
+}
+header
+{
+    margin-left: 10%;
+}
+sub 
+{
+    vertical-align: sub;
+    font-size: smaller;
+}
+button
+{
+    margin-top:2% ;
+    margin-left: 45%;
+    margin-right: 45%;
+    font-size: large;
+    color: white;
+    background-color: #000142;
+}
+h1
+{
+    text-align: center;
+}
+h3
+{
+    text-align: center;
+}
+label
+{
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
+}
+.div1
+{
+    margin-left: 2%;
+    margin-right: 2%;
+}
+#main
+{
+    margin-top: 10%;
+    margin-right: 25%;
+    margin-left: 25%;
+    background-color: white;
+    color: black;
+}
+#heading
+{
+    margin-top: 5%;
+    background-color:lightgray;
+}
+.select
+{   
+    float: right;   
+    border: none;
+}
+.inp
+{
+
+  margin-left: 35%;
+}

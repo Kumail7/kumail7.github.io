@@ -1,0 +1,23 @@
+.jumbotron
+{
+    text-align: center;
+    font: large;
+    background-color: #202347;
+    color: white;
+}
+i
+{
+    margin-left: 1%;
+}
+.container
+{
+    margin-top: 5%;
+}
+#subject
+{
+    margin-left: 25%;
+}
+table,h1
+{
+    text-align: center;
+}

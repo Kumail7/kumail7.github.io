@@ -1,0 +1,44 @@
+body
+{
+    background: url("images/Frost.jpg") no-repeat fixed;    
+    color: white;
+    background-size: cover;
+}
+header
+{
+    margin-left: 10%;
+}
+sub 
+{
+    vertical-align: sub;
+    font-size: smaller;
+  }
+button
+{
+    float:right;
+    margin-top: 1%;
+    
+}
+.main
+{
+    margin-top: 20%;
+    margin-left: 10%;
+    margin-right: 50%;
+    background-color: orange;
+    color: black;
+}
+#heading
+{
+    margin-top: 5%;
+    background-color:lightgray;
+}
+.select
+{   
+    float: right;   
+    border: none;
+}
+.inp
+{
+   position: relative;
+   margin-right: 0;
+}
